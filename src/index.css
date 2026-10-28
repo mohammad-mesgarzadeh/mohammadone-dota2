@@ -1,0 +1,210 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: #070605;
+  color: #e8dccd;
+  font-family: 'Inter', system-ui, sans-serif;
+  overflow-x: hidden;
+}
+
+::selection {
+  background-color: #d6452c;
+  color: #fff;
+}
+
+/* Cinematic film-grain overlay */
+.grain::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  pointer-events: none;
+  opacity: 0.045;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Subtle scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0b0a09;
+}
+::-webkit-scrollbar-thumb {
+  background: #2a231d;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3a312a;
+}
+
+@layer components {
+  .section-shell {
+    @apply relative mx-auto w-full max-w-7xl px-6 md:px-10;
+  }
+  .eyebrow {
+    @apply font-sans text-[11px] uppercase tracking-[0.4em] text-ember-500;
+  }
+  .heading-xl {
+    @apply font-display text-4xl font-bold leading-[1.05] sm:text-5xl md:text-6xl lg:text-7xl;
+  }
+  .heading-lg {
+    @apply font-display text-3xl font-semibold leading-[1.1] sm:text-4xl md:text-5xl;
+  }
+  .body-prose {
+    @apply font-sans text-base leading-[1.7] text-gold-300/80 sm:text-lg;
+  }
+}
+
+/* ── Scroll-reveal animation ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.8s cubic-bezier(0.21, 0.47, 0.32, 0.98),
+    transform 0.8s cubic-bezier(0.21, 0.47, 0.32, 0.98);
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Hero entrance animations ── */
+@keyframes heroFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes heroFadeUpLarge {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes heroScaleIn {
+  from {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+  to {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+}
+
+@keyframes scrollDot {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+}
+
+.hero-fade-up {
+  opacity: 0;
+  animation: heroFadeUp 0.8s cubic-bezier(0.21, 0.47, 0.32, 0.98) forwards;
+}
+.hero-fade-up-lg {
+  opacity: 0;
+  animation: heroFadeUpLarge 1s cubic-bezier(0.21, 0.47, 0.32, 0.98) forwards;
+}
+.hero-scale-in {
+  opacity: 0;
+  animation: heroScaleIn 1s cubic-bezier(0.21, 0.47, 0.32, 0.98) forwards;
+}
+.hero-scroll-dot {
+  animation: scrollDot 2s ease-in-out infinite;
+}
+.hero-late-fade {
+  opacity: 0;
+  animation: heroFadeUp 1s ease-out forwards;
+}
+
+/* ── CTA glow pulse ── */
+@keyframes ctaGlow {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(214, 69, 44, 0);
+  }
+  50% {
+    box-shadow: 0 0 20px -4px rgba(214, 69, 44, 0.35);
+  }
+}
+.cta-glow:hover {
+  animation: ctaGlow 2s ease-in-out infinite;
+}
+
+/* ── Image zoom on hover (Signature Heroes) ── */
+.hero-img-zoom {
+  transition: transform 0.6s cubic-bezier(0.21, 0.47, 0.32, 0.98);
+  will-change: transform;
+}
+.group:hover .hero-img-zoom {
+  transform: scale(1.06);
+}
+
+/* ── Mobile menu slide ── */
+.mobile-menu {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.21, 0.47, 0.32, 0.98), opacity 0.3s ease;
+  opacity: 0;
+}
+.mobile-menu.open {
+  max-height: 28rem;
+  opacity: 1;
+}
+
+/* ── Keyboard focus styles ── */
+*:focus-visible {
+  outline: 2px solid #e8744f;
+  outline-offset: 3px;
+}
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .hero-fade-up,
+  .hero-fade-up-lg,
+  .hero-scale-in,
+  .hero-late-fade,
+  .hero-scroll-dot,
+  .cta-glow,
+  .animate-slow-pan,
+  .animate-ember-flicker,
+  .hero-img-zoom {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
