@@ -11,12 +11,14 @@ export const profile = {
 } as const;
 
 /**
- * Centralized hero asset configuration.
- * Images are official Valve Dota 2 hero artwork from the Steam CDN.
- * Social images are high-resolution cinematic hero portraits.
- * Card images are the horizontal hero art used on the Dota 2 hero grid.
+ * Base-aware local asset paths for Vite and GitHub Pages.
+ * Local images must exist inside the public/images directory.
  */
-const STEAM_CDN = 'https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes';
+const asset = (path: string) =>
+  `${import.meta.env.BASE_URL}${path.replace(/^\/+/, '')}`;
+
+const STEAM_CDN =
+  'https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes';
 
 export interface HeroShowcase {
   id: string;
@@ -38,8 +40,8 @@ export const heroes: HeroShowcase[] = [
     description:
       'The ringmaster bends the fight to his will — yanking enemies out of position, disrupting initiations, and turning the tempo of a teamfight on its head. A hero of misdirection where every cast is an opening for the carry to shine.',
     accent: '#d4b878',
-    image: `/images/ringmaster.webp`,
-    cardImage: `/images/ringmaster.webp`,
+    image: asset('images/ringmaster.webp'),
+    cardImage: asset('images/ringmaster.webp'),
     alt: 'Dota 2 hero Ringmaster — a theatrical showman directing the battle with mesmerism and fear',
     attributes: ['Positioning', 'Disruption', 'Tempo'],
   },
@@ -50,8 +52,8 @@ export const heroes: HeroShowcase[] = [
     description:
       'The longer the fight lasts, the stronger he becomes. Undying presses the frontline with decay and the tombstone, forcing enemies to respect a zone they cannot hold. Lane dominance that snowballs into map control.',
     accent: '#7a8a5a',
-    image: `/images/undying.webp`,
-    cardImage: `/images/undying.webp`,
+    image: asset('images/undying.webp'),
+    cardImage: asset('images/undying.webp'),
     alt: 'Dota 2 hero Undying — a decayed undead titan dominating the frontline in a teamfight',
     attributes: ['Laning', 'Frontline', 'Sustain'],
   },
@@ -62,8 +64,8 @@ export const heroes: HeroShowcase[] = [
     description:
       'There is no escape. Hex, shackles, and a ward trap that ends games. Shadow Shaman converts a single pick-off into a tower, a barracks, and eventually the ancient — the most reliable objective closer in the support pool.',
     accent: '#5a9a6a',
-    image: `/images/shadow_shaman.webp`,
-    cardImage: `/images/shadow_shaman.webp`,
+    image: asset('images/shadow_shaman.webp'),
+    cardImage: asset('images/shadow_shaman.webp'),
     alt: 'Dota 2 hero Shadow Shaman — a mystical spellcaster with serpent wards and hard lockdown abilities',
     attributes: ['Lockdown', 'Pick-offs', 'Pushing'],
   },
@@ -74,8 +76,8 @@ export const heroes: HeroShowcase[] = [
     description:
       'One cast decides the fight. Fatal Bonds links the enemy into a single shared fate, and Chaotic Offering drops a golem that disrupts, slows, and cleaves through an entire lineup. The ultimate that turns a lost game.',
     accent: '#c75a3a',
-    image: `/images/warlock.webp`,
-    cardImage: `/images/warlock.webp`,
+    image: asset('images/warlock.webp'),
+    cardImage: asset('images/warlock.webp'),
     alt: 'Dota 2 hero Warlock — a demonic summoner unleashing a golem and fatal bonds on the enemy team',
     attributes: ['Teamfight', 'Initiation', 'Healing'],
   },
@@ -93,21 +95,21 @@ export const playstyle: PlaystyleFeature[] = [
     id: 'vision',
     title: 'Vision & Map Control',
     description:
-      'Warding is not a chore — it is the language of the game. I read the enemy\u2019s movements before they happen and paint the map with the information my team needs to dictate the pace.',
+      'Warding is not a chore — it is the language of the game. I read the enemy’s movements before they happen and paint the map with the information my team needs to dictate the pace.',
     icon: 'Eye',
   },
   {
     id: 'saves',
     title: 'Saves & Peeling',
     description:
-      'A carry survives because I was already there. Force staffs, glimmer capes, and body blocks — the invisible plays that keep the team\u2019s damage alive through the fight.',
+      'A carry survives because I was already there. Force staffs, glimmer capes, and body blocks — the invisible plays that keep the team’s damage alive through the fight.',
     icon: 'Shield',
   },
   {
     id: 'control',
     title: 'Crowd Control',
     description:
-      'Lock down the right target at the right moment. One well-timed hex or shackle removes the enemy\u2019s win condition before it ever comes online.',
+      'Lock down the right target at the right moment. One well-timed hex or shackle removes the enemy’s win condition before it ever comes online.',
     icon: 'Lock',
   },
   {
@@ -128,13 +130,9 @@ export const navItems = [
   { id: 'contact', label: 'Contact' },
 ] as const;
 
-/**
- * Section background images — cinematic Dota 2 hero art used for
- * atmospheric section backdrops. All from the official Steam CDN.
- */
 export const sectionImages = {
-  hero: '/images/wallpapersden.com_dota-2-poster-4k_4000x2035.webp',
-  about: `/images/rubick.webp`,
+  hero: asset('images/wallpapersden.com_dota-2-poster-4k_4000x2035.webp'),
+  about: asset('images/rubick.webp'),
   contact: `${STEAM_CDN}/social/shadow_shaman.jpg`,
-  profile: '/images/mohamadone.webp',
+  profile: asset('images/mohamadone.webp'),
 } as const;
