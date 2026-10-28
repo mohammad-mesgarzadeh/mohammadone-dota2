@@ -2,6 +2,8 @@
 
 > **THE GAME IS WON BEFORE THE FIGHT BEGINS.**
 
+🌐 **Live Website:** [https://mohammad-mesgarzadeh.github.io/mohammadone-dota2/](https://mohammad-mesgarzadeh.github.io/mohammadone-dota2/)
+
 A cinematic esports portfolio showcasing **MohammadOne**, a Dota 2 Position 5 / Hard Support player. This website highlights my signature heroes, support playstyle, competitive mindset, and player profile through a dark, immersive design inspired by the world of Dota 2.
 
 ## About
@@ -26,6 +28,7 @@ My philosophy is simple: a great support does more than help win fights — they
 - Smooth CSS animations and scroll-triggered reveals.
 - Reduced-motion accessibility support.
 - Links to my player profile and social media.
+- Deployed on GitHub Pages.
 
 ## Tech Stack
 
@@ -34,6 +37,7 @@ My philosophy is simple: a great support does more than help win fights — they
 - Vite
 - Tailwind CSS
 - CSS animations
+- GitHub Pages
 
 ## Getting Started
 
@@ -41,19 +45,20 @@ My philosophy is simple: a great support does more than help win fights — they
 
 - [Node.js](https://nodejs.org/) (LTS recommended)
 - npm
+- Git
 
 ### Installation
 
 Clone the repository:
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/mohammadone-dota2-portfolio.git
+git clone https://github.com/mohammad-mesgarzadeh/mohammadone-dota2.git
 ```
 
 Navigate to the project directory:
 
 ```bash
-cd mohammadone-dota2-portfolio
+cd mohammadone-dota2
 ```
 
 Install dependencies:
@@ -91,11 +96,25 @@ npm run typecheck
 npm run lint
 ```
 
+### Deployment
+
+This project is deployed using GitHub Pages.
+
+To build and deploy the latest version, run:
+
+```bash
+npm run deploy
+```
+
+The deployment script builds the project and publishes the generated files from the `dist` directory to the `gh-pages` branch.
+
+**Live website:** [https://mohammad-mesgarzadeh.github.io/mohammadone-dota2/](https://mohammad-mesgarzadeh.github.io/mohammadone-dota2/)
+
 ## Project Structure
 
 ```text
-mohammadone-dota2-portfolio/
-├── public/             # Static assets
+mohammadone-dota2/
+├── public/             # Static assets and images
 ├── src/
 │   ├── components/     # Website sections and UI components
 │   ├── data/           # Content and configuration
@@ -103,15 +122,17 @@ mohammadone-dota2-portfolio/
 │   └── main.tsx        # Application entry point
 ├── index.html
 ├── package.json
+├── vite.config.ts
 └── README.md
 ```
 
 The exact structure may vary as the project evolves.
 
-## Links
+## Player Profiles
 
-- **Dotabuff:** https://www.dotabuff.com/players/1006412547
-- **Instagram:** https://www.instagram.com/mohammadone_1/?hl=en
+- **Dotabuff:** [View MohammadOne's Dotabuff profile](https://www.dotabuff.com/players/1006412547)
+- **Instagram:** [Follow MohammadOne on Instagram](https://www.instagram.com/mohammadone_1/?hl=en)
+- **Portfolio:** [Visit the live website](https://mohammad-mesgarzadeh.github.io/mohammadone-dota2/)
 
 ## Design Philosophy
 
@@ -121,7 +142,9 @@ The goal is to communicate strategic discipline, awareness, and the impact of a 
 
 ## Credits and Disclaimer
 
-Dota 2 and its related artwork, characters, and trademarks belong to their respective owners, including Valve Corporation. This is an unofficial, fan-made portfolio project and is not affiliated with or endorsed by Valve.
+Dota 2 and its related artwork, characters, and trademarks belong to their respective owners, including Valve Corporation.
+
+This is an unofficial, fan-made portfolio project. It is not affiliated with, endorsed by, or sponsored by Valve Corporation.
 
 Images and other third-party assets remain subject to their respective licenses and usage terms.
 
@@ -132,6 +155,9 @@ No license has been specified for this repository. Unless a license is added, ot
 ---
 
 **MohammadOne**  
-*Position 5 · Hard Support · Dota 2*
+*Dota 2 · Position 5 · Hard Support*
 
-**THE GAME IS WON BEFORE THE FIGHT BEGINS.**
+> **THE GAME IS WON BEFORE THE FIGHT BEGINS.**
+
+[Visit the live portfolio](https://mohammad-mesgarzadeh.github.io/mohammadone-dota2/)
+
