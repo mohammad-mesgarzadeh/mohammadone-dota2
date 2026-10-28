@@ -134,5 +134,5 @@ export const sectionImages = {
   hero: asset('images/wallpapersden.com_dota-2-poster-4k_4000x2035.webp'),
   about: asset('images/rubick.webp'),
   contact: `${STEAM_CDN}/social/shadow_shaman.jpg`,
-  profile: asset('images/mohamadone.webp'),
+  profile: asset('images/mohammadOne.webp'),
 } as const;
